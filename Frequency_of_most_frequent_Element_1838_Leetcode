@@ -1,0 +1,21 @@
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        l = 0
+        maxF = 1 
+        freq = 0
+        r = 0
+        while r < len(nums):
+            freq += nums[r]
+
+            while nums[r] * (r - l + 1) - freq > k:
+                freq -= nums[l]
+                l = l + 1 
+
+            maxF = max(maxF, r - l + 1)
+            r = r + 1
+        return maxF
+                
+
+Time Complexity : Big O(n)
+Space Complexity : Big O(1)
