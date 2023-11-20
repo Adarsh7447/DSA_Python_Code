@@ -1,0 +1,23 @@
+class Solution:
+    def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
+        t = 0
+        n = len(garbage)
+        g_idx = 0 
+        p_idx = 0
+        m_idx = 0 
+        for i in range(n):
+            if 'G' in garbage[i]:
+                g_idx = i
+            if 'P' in garbage[i]:
+                p_idx = i
+            if 'M' in garbage[i]:
+                m_idx = i
+            t += len(garbage[i])
+
+        t += sum(travel[:m_idx])+sum(travel[:p_idx])+sum(travel[:g_idx])
+
+
+        return t
+
+        
+        
