@@ -1,0 +1,19 @@
+class Solution:
+    def countNicePairs(self, nums: List[int]) -> int:
+    
+        dic = collections.defaultdict(int)
+        for i in nums:
+            res = i - int(str(i)[::-1])
+            dic[res] += 1
+        
+        ans = 0
+        for i in dic:
+            if dic[i] > 1:
+                ans += ((dic[i] * (dic[i] - 1)) // 2 ) % (10**9 + 7)
+
+        return ans % (10**9 + 7)
+
+TimeComplexity = Big O(n)
+SpaceComplexity = Big O(1)
+
+        
