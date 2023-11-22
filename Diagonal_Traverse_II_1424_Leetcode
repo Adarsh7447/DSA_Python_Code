@@ -1,0 +1,18 @@
+class Solution:
+    def findDiagonalOrder(self, nums: List[List[int]]) -> List[int]:
+        diagonal_dict = {}
+        for i in range(len(nums)):
+            for j in range(len(nums[i])):
+                diagonal_sum = i + j
+                if diagonal_sum not in diagonal_dict:
+                    diagonal_dict[diagonal_sum] = [nums[i][j]]
+                else:
+                    diagonal_dict[diagonal_sum].append(nums[i][j]) 
+
+        result = []
+        for v in diagonal_dict.values():
+            result.extend(v[::-1])
+        return result
+
+TimeComplexity : Big O(n^2)
+SpaceComplexity : 
