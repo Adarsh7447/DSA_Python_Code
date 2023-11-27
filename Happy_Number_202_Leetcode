@@ -1,0 +1,18 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        def get_digit(n):
+            sum = 0
+            while (n != 0):
+                sum = sum + ((n%10) ** 2)
+                n = n // 10 
+            return sum
+        seen = set()
+        while n != 1 and n not in seen:
+            seen.add(n)
+            n = get_digit(n)
+
+        return n == 1
+
+
+
+            
