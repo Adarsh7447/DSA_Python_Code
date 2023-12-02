@@ -1,0 +1,17 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        length = []
+        freq = collections.defaultdict(lambda: 0)
+        for c in chars:
+            freq[c] += 1
+
+        for i in words:
+            for j in i:
+                if freq[j] < i.count(j):
+                    break
+            else:
+                length.append(len(i))
+        return sum(length)
+
+
+         
