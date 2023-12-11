@@ -1,0 +1,15 @@
+class Solution:
+    def findSpecialInteger(self, arr: List[int]) -> int:
+        n = len(arr) // 4 
+        dic = {}
+        for i in arr:
+            if i in dic:
+                dic[i] += 1 
+            else:
+                dic[i] = 1 
+        
+        for j  in dic.keys():
+            if dic[j] > n:
+                return j
+
+        
