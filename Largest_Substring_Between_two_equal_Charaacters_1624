@@ -1,0 +1,14 @@
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        dic = {}
+        res = 0
+        for i in range(len(s)):
+            if s[i] in dic:
+                diff = i - dic[s[i]]
+                res = max(res, diff)
+            else:
+                dic[s[i]] = i
+        return res-1
+
+TimeComplexity = BigO(n) 
+Space Complexity = Big(1)
