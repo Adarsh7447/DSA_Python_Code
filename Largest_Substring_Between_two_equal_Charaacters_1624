@@ -11,4 +11,4 @@ class Solution:
         return res-1
 
 TimeComplexity = BigO(n) 
-Space Complexity = Big(1)
+Space Complexity = Big(n)
