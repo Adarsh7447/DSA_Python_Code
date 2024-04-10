@@ -1,0 +1,30 @@
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        l = 0 
+        r = 0 
+        count = 0 
+        res_idx = 0 
+        while r < len(chars):
+            if chars[l] == chars[r]:
+                r = r + 1 
+                count = count + 1
+            else: 
+                chars[res_idx] = chars[l]
+                res_idx += 1 
+                if count > 1:
+                    for digit in str(count):
+                        chars[res_idx] = digit
+                        res_idx += 1 
+                l = r
+                count = 0
+        chars[res_idx] = chars[l]
+        res_idx += 1 
+        if count > 1:
+            for digit in str(count):
+                chars[res_idx] = digit
+                res_idx += 1 
+        return res_idx
+
+
+Time complexity = bigO(n^2) 
+space complexity = bigO(n)
