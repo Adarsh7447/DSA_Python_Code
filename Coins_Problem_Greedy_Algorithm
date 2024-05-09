@@ -1,0 +1,12 @@
+def greddy(coins, amount):
+   coins = sorted(coins, reverse=True)
+   res = 0
+   for i in coins:
+       if i <= amount: 
+          x = amount//i 
+          res += x 
+          amount = amount - (i * x)
+   return res
+  
+res = greddy([1,2,5,10],88)
+print(res)
