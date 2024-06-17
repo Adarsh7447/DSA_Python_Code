@@ -1,0 +1,36 @@
+Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c.
+
+ 
+
+Example 1:
+
+Input: c = 5
+Output: true
+Explanation: 1 * 1 + 2 * 2 = 5
+Example 2:
+
+Input: c = 3
+Output: false
+ 
+
+Constraints:
+
+0 <= c <= 231 - 1
+
+Code = 
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        l = 0 
+        r = int(c**0.5)
+        while l <= r:
+            current_sum = l**2 + r**2
+            if current_sum > c:
+                r = r - 1 
+            elif current_sum < c:
+                l = l + 1
+            elif current_sum == c:
+                return True
+        return False
+
+Time complexity = O(nlogn)
+Space complexity = O(1)
